@@ -2,15 +2,14 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= yield(:title) %>Home | サプリアプリ</title>
+    <title><%= yield(:title) %> | サプリアプリ</title>
   </head>
   <body>
-    <%# <div class="center"> %>
-      <h1>サプリアプリ</h1>
-      <p>
-        サプリの口コミ投稿サイトです！
-      </p>
-      <%= link_to "ユーザー登録", '#', class: "btn btn-lg btn-primary" %>
-    <%# </div> %>
+    <h1>サプリアプリ</h1>
+    <p>
+      サプリの口コミ投稿サイトです！
+    </p>
+    <%= link_to "ユーザー登録", '#', class: "btn btn-lg btn-primary" %>
+    <%= link_to "このアプリについて", about_path, class: "btn btn-lg btn-primary" %>
   </body>
 </html>
