@@ -1,15 +1,10 @@
 <% provide(:title, "Home") %>
-<!DOCTYPE html>
-<html>
-  <head>
-    <title><%= yield(:title) %> | サプリアプリ</title>
-  </head>
-  <body>
-    <h1>サプリアプリ</h1>
-    <p>
-      サプリの口コミ投稿サイトです！
-    </p>
-    <%= link_to "ユーザー登録", '#', class: "btn btn-lg btn-primary" %>
-    <%= link_to "このアプリについて", about_path, class: "btn btn-lg btn-primary" %>
-  </body>
-</html>
+
+<%= link_to image_tag("logo.png", alt: "sapliapli logo", width: "500px"), root_path %>
+<p>
+  みんなでつくるサプリ評価SNS
+</p>
+<%= link_to "使い方",   about_path,  class: "btn btn-lg btn-info", id: "aboutbtn" %>
+<br>
+<%= link_to "新規登録", signup_path, class: "btn btn-lg btn-warning" %>
+<%= link_to "ログイン", '#', class: "btn btn-lg btn-warning" %>
