@@ -11,9 +11,11 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
+      log_in @user
       flash[:success] = "#{@user.name}さん、サプリアプリへようこそ！"
       redirect_to @user
       else
+        flash[:danger] = 'Invalid email/password combination'
         render 'new'
     end 
   end
