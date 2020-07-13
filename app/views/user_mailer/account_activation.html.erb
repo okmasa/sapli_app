@@ -1,0 +1,12 @@
+<h1>サプリアプリ</h1>
+
+<p>こんにちは、<%= @user.name %> さん。</p>
+
+
+<p>
+  サプリアプリへようこそ！
+  下のリンクをクリックしてアカウントを有効化してください。
+</p>
+
+<%= link_to "アカウントの有効化", edit_account_activation_url(@user.activation_token,
+                                                    email: @user.email) %>
