@@ -19,12 +19,11 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      log_in @user
       @user.send_activation_email
       flash[:info] = "メールを確認してアカウントを有効化してください"
       redirect_to root_url
       else
-        flash[:danger] = 'Invalid email/password combination'
+        flash[:danger] = 'メールアドレスとパスワードの組み合わせが正しくありません'
         render 'new'
     end 
   end
