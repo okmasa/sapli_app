@@ -8,7 +8,8 @@ class User < ApplicationRecord
                                    dependent:   :destroy
   has_many :following, through: :active_relationships,  source: :followed
   has_many :followers, through: :passive_relationships, source: :follower
-
+  # mount_uploader :img, ImgUploader
+  has_one_attached :img
   attr_accessor :remember_token, :activation_token, :reset_token
   before_save   :downcase_email
   before_create :create_activation_digest
@@ -19,6 +20,10 @@ class User < ApplicationRecord
                     uniqueness: true
   has_secure_password
   validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
+  validates :img, content_type: { in:      %w[image/jpeg image/gif image/png],
+                                  message: "must be a valid image format" },
+                                  size:   { less_than: 5.megabytes,
+                                            message: "should be less than 5MB" }
 
   #引数の文字列のハッシュ値を返す
   def self.digest(string)

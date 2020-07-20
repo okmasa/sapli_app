@@ -3,7 +3,7 @@
   <div class="field">
     <%= f.text_area :content, placeholder: "新しい投稿" %>
   </div>
-  <%= f.submit "Post", class: "btn btn-primary" %>
+  <%= f.submit "投稿", class: "btn btn-primary" %>
   <span id="micropost_image">
   <%= f.file_field :image, accept: "image/png,image/gif,image/png" %>
   </span>
@@ -17,4 +17,4 @@
       $("#micropost_image").val("");
     }
   });
-</script>
+</script>

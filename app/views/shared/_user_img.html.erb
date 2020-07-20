@@ -1,0 +1,6 @@
+<% @user ||= current_user %>
+<% if @user.img.attached? %>
+  <%= image_tag @user.img, class: "user-img" %>
+  <% else %>
+    <%= image_tag "/assets/default.jpg", class: "user-img" %>
+<% end %>

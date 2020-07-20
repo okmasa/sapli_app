@@ -20,13 +20,14 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
+    @user.img.attach(params[:user][:img])
     if @user.save
       @user.send_activation_email
       flash[:info] = "メールを確認してアカウントを有効化してください"
       redirect_to root_url
-      else
-        flash[:danger] = 'メールアドレスとパスワードの組み合わせが正しくありません'
-        render 'new'
+    else
+      flash[:danger] = "エラーを確認してください"
+      render 'new'
     end 
   end
 
@@ -65,7 +66,7 @@ class UsersController < ApplicationController
   private
 
     def user_params
-      params.require(:user).permit(:name, :email, :password, :password_confirmation)
+      params.require(:user).permit(:name, :email, :password, :password_confirmation, :img)
     end
     
     #beforeアクション

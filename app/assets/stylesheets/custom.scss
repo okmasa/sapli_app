@@ -192,17 +192,15 @@ span.image {
   }
 }
 
-.user_avatars {
-  overflow: auto;
-  margin-top: 10px;
-  .gravatar {
-    margin: 1px 1px;
-  }
-  a {
-    padding: 0;
-  }
-}
-
 .users.follow {
   padding: 0;
+}
+
+
+/* image */
+.user-img {
+  border-radius: 50%;
+  width:  200px;       /* ※縦横を同値に */
+  height: 200px;       /* ※縦横を同値に */
+  margin-bottom: 1em;
 }
