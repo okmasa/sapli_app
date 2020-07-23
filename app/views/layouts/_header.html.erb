@@ -4,18 +4,19 @@
 
     <nav>
       <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to "ホーム",   root_path %></li>
-        <li><%= link_to "使い方",   about_path %></li>
+        <li><%= link_to "ホーム",       root_path %></li>
+        <li><%= link_to "使い方",       about_path %></li>
+        <li><%= link_to "サプリ一覧",   supplements_path %></li>
         <% if logged_in? %>
-          <li><%= link_to "登録者一覧", users_path %></li>
+          <li><%= link_to "ユーザーリスト", users_path %></li>
           <li class="dropdown">
-            <a href="#" class="dropdown-togle" data-toggle="dropdown">
+            <a href="#" class="nav-link dropdown-togle" data-toggle="dropdown">
               アカウント <b class="caret"></b>
             </a>
             <ul class="dropdown-menu">
               <li><%= link_to "マイページ", current_user %></li>
-              <li><%= link_to "設定", edit_user_path(current_user) %></li>
-              <li class="divider"></li>
+              <li><%= link_to "設定", edit_user_path(current_user) %></li>
+              <div class="divider"></div>
               <li><%= link_to "ログアウト", logout_path, method: :delete %></li>
             </ul>
           </li>

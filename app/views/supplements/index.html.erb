@@ -1,0 +1,11 @@
+<% provide(:title, 'サプリ一覧') %>
+
+<h1>サプリ一覧</h1>
+<%= will_paginate %>
+
+<ul class="supplement">
+  <%# <%= render @supplements %>
+  <%= render "supplement" %>
+</ul>
+
+<%= will_paginate %>

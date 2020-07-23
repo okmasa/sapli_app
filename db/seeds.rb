@@ -36,3 +36,20 @@ following = users[2..50]
 followers = users[3..40]
 following.each { |followed| user.follow(followed) }
 followers.each { |follower| follower.follow(user) }
+
+
+# サンプルアプリの作成
+50.times do |n|
+  suppli_name  = "example-sapli#{n+1}"
+  sup = Supplement.create!(name:suppli_name)
+  # なんとか画像をつけたい
+  sup.img.attach(io: File.open("./db/fixtures/noimage.jpg"), filename: "noimage.jpg")
+  # sup.total_score = 3
+end
+
+
+# 99.times do |n|
+#   suppli_name  = "example-sapli#{n+1}"
+#   supplement = Supplement.create!(name:  suppli_name)
+#   supplement.img.attach("./app/assets/images/noimage.jpg")
+# end

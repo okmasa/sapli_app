@@ -2,5 +2,5 @@
 
 vitaminC:
   name: "ビタミンC"
-  score: 3
   img: fixture_file_upload('test/fixtures/kitten.jpg', 'image/jpeg')
+  total_score: 2

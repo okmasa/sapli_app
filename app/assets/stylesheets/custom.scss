@@ -204,3 +204,19 @@ span.image {
   height: 200px;       /* ※縦横を同値に */
   margin-bottom: 1em;
 }
+
+.sapli-img {
+  width:  400px;       /* ※縦横を同値に */
+  height: 400px;       /* ※縦横を同値に */
+  margin-top: 1em;
+  margin-bottom: 2em;
+}
+
+// サプリ一覧のグリッドシステム
+.sapli-back{
+  background: $gray-medium-light;
+  text-align: center;
+  margin-bottom: 40px;
+  border: 1px solid;
+}
+

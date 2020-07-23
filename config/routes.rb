@@ -3,8 +3,9 @@ Rails.application.routes.draw do
   get  '/about',    to: 'static_pages#about'
   get  '/signup',   to: 'users#new'
   get  '/login',    to: 'sessions#new'
-  post  '/login',   to: 'sessions#create'
+  post '/login',    to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
+  get  '/register', to: 'supplements#new'
   resources :users do
     member do
       get :following, :followers
@@ -14,4 +15,5 @@ Rails.application.routes.draw do
   resources :password_resets,     only: [:new, :create, :edit, :update]
   resources :microposts,          only: [:create, :destroy]
   resources :relationships,       only: [:create, :destroy]
+  resources :supplements
 end
