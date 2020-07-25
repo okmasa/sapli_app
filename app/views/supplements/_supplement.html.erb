@@ -1,14 +1,14 @@
 <div class="container">
-    <div class="row row-20">
-      <% @supplements.each_with_index do |sapli| %>
+    <div class="row">
+      <% @supplements.each do |sapli| %>
         <div class="col-md-3 col-md-offset-1 sapli-back">
-          <%= image_tag sapli.img, size:200 %><br>
+          <% if sapli.img.attached? %>
+            <%=link_to (image_tag sapli.img, size:200), sapli %><br>
+          <% end %>
           <%= link_to sapli.name, sapli %>
-          <% if current_user %>
-            <% if current_user.admin? && !current_user?(params[:user]) %>
-              　| <%= link_to "delete", "#", method: :delete, 
-                                              data: { confirm: "削除しますか？" } %>
-            <% end %>
+          <% if current_user && current_user.admin? %>
+              　| <%= link_to "delete", sapli, method: :delete, 
+                                                 data: { confirm: "削除しますか？" } %>
           <% end %>
         </div>
       <% end %>

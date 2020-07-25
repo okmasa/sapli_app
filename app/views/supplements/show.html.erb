@@ -2,7 +2,16 @@
 
 <div class="row">
   <div class="col-md-6 col-md-offset-3 sapli-back">
-     <h1 class="form_title"><%= @supplement.name %></h1>
-     <%= image_tag @supplement.img, class: "sapli-img"%>
+    <h1 class="form_title"><%= @supplement.name %></h1>
+    <%= image_tag @supplement.img, class: "sapli-img"%>
   </div>
+  <div class="col-md-3">
+    <%= link_to "編集", edit_supplement_path, class: 'btn btn-default' %>
+    <% if current_user && current_user.admin? %>
+      　<%= link_to "delete", @supplement, method: :delete, 
+                                           data: { confirm: "削除しますか？" } %>
+    <% end %>
+  </div>
+  <div class="col-md-6 col-md-offset-3">
+    <p><%= @supplement.description %></p>
 </div>

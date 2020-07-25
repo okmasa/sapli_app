@@ -21,7 +21,7 @@ class User < ApplicationRecord
   has_secure_password
   validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
   validates :img, content_type: { in:      %w[image/jpeg image/gif image/png],
-                                  message: "must be a valid image format" },
+                                  message: "画像フォーマットが正しくありません" },
                                   size:   { less_than: 5.megabytes,
                                             message: "should be less than 5MB" }
 

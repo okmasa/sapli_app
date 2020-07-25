@@ -1,6 +1,19 @@
-# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
 vitaminC:
-  name: "ビタミンC"
-  img: fixture_file_upload('test/fixtures/kitten.jpg', 'image/jpeg')
-  total_score: 2
+  name: ビタミンC
+  # img: fixture_file_upload('test/fixtures/kitten.jpg', 'image/jpeg')
+  # total_score: 2
+
+example_sapli:
+  name: テスト
+  # img: fixture_file_upload('test/fixtures/kitten.jpg', 'image/jpeg')
+  # total_score: 2
+
+example_sapli2:
+  name: テスト2
+  # img: fixture_file_upload('test/fixtures/kitten.jpg', 'image/jpeg')
+  # total_score: 2
+
+# <% 50.times do |n| %>
+#   sapli_<%= n %>:
+#     name: <% "Supplement-example #{n}" %>
+# <% end %>
