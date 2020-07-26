@@ -3,7 +3,7 @@ class SupplementsController < ApplicationController
   before_action :admin_user,     only: [:destroy]
   
   def index
-    @supplements = Supplement.paginate(page: params[:page])
+    @supplements = Supplement.paginate(page: params[:page], per_page: 9)
   end
 
   def new

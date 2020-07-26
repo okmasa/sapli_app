@@ -3,9 +3,9 @@
       <% @supplements.each do |sapli| %>
         <div class="col-md-3 col-md-offset-1 sapli-back">
           <% if sapli.img.attached? %>
-            <%=link_to (image_tag sapli.img, size:200), sapli %><br>
+            <%=link_to (image_tag sapli.img, size:200), sapli, class: "sapli_img" %><br>
           <% end %>
-          <%= link_to sapli.name, sapli %>
+          <p><%= link_to sapli.name, sapli %></p>
           <% if current_user && current_user.admin? %>
               　| <%= link_to "delete", sapli, method: :delete, 
                                                  data: { confirm: "削除しますか？" } %>
