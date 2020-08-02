@@ -1,19 +1,14 @@
 vitaminC:
-  name: ビタミンC
-  # img: fixture_file_upload('test/fixtures/kitten.jpg', 'image/jpeg')
-  # total_score: 2
+ name: ビタミンC
+ id: 1
+#  img: fixture_file_upload('test/fixtures/kitten.jpg', 'image/jpeg')
 
 example_sapli:
-  name: テスト
-  # img: fixture_file_upload('test/fixtures/kitten.jpg', 'image/jpeg')
-  # total_score: 2
+ name: テスト
+ id: 2
+#  img: fixture_file_upload('test/fixtures/kitten.jpg', 'image/jpeg')
 
 example_sapli2:
-  name: テスト2
-  # img: fixture_file_upload('test/fixtures/kitten.jpg', 'image/jpeg')
-  # total_score: 2
-
-# <% 50.times do |n| %>
-#   sapli_<%= n %>:
-#     name: <% "Supplement-example #{n}" %>
-# <% end %>
+ name: テスト2
+ id: 3
+#  img: fixture_file_upload('test/fixtures/kitten.jpg', 'image/jpeg')

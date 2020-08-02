@@ -1,0 +1,40 @@
+  <%= form_with(model: @review, local: true) do |f| %>
+    <%= render 'shared/error_messages', object: f.object %>
+    
+    <!-- サプリID -->
+    <%= f.hidden_field :supplement_id, { value: @supplement.id } %>
+    <!-- 評価 -->
+    <div id="star">
+      <%= f.label :score, "評価" %>
+      <%= f.hidden_field :score, id: :review_star %>
+    </div>
+    <!-- テキスト -->
+    <div class="field">
+      <%= f.text_area :content, size: "10x5", placeholder: "サプリの評価を書いて下さい!" %>
+    </div>
+    <!-- 投稿ボタン -->
+    <%= f.submit "評価する", class: "btn btn-primary" %>
+  <% end %>
+
+  <!-- 評価javascript -->
+  <script>
+  $('#star').raty({
+    size   : 50,
+    score  : 2.5,
+    starOff:  '<%= asset_path('star-off.png') %>',
+    starOn :  '<%= asset_path('star-on.png') %>',
+    starHalf: '<%= asset_path('star-half.png') %>',
+    scoreName: 'review[score]',
+    half: true
+  });
+  </script>
+
+<%# <script type="text/javascript">
+  $("#micropost_image").bind("change", function() {
+    let size_in_megabytes = this.files[0].size/1024/1024;
+    if (size_in_megabytes > 5) {
+      alert("ファイルサイズは5MB以下にして下さい");
+      $("#micropost_image").val("");
+    }
+  });
+</script> %>

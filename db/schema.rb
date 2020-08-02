@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_26_065947) do
+ActiveRecord::Schema.define(version: 2020_07_29_033216) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -38,6 +38,9 @@ ActiveRecord::Schema.define(version: 2020_07_26_065947) do
     t.integer "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "supplement_id"
+    t.float "score"
+    t.index ["supplement_id"], name: "index_microposts_on_supplement_id"
     t.index ["user_id", "created_at"], name: "index_microposts_on_user_id_and_created_at"
     t.index ["user_id"], name: "index_microposts_on_user_id"
   end
@@ -50,6 +53,19 @@ ActiveRecord::Schema.define(version: 2020_07_26_065947) do
     t.index ["followed_id"], name: "index_relationships_on_followed_id"
     t.index ["follower_id", "followed_id"], name: "index_relationships_on_follower_id_and_followed_id", unique: true
     t.index ["follower_id"], name: "index_relationships_on_follower_id"
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.text "content"
+    t.integer "user_id", null: false
+    t.integer "supplement_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.float "score"
+    t.index ["supplement_id", "created_at"], name: "index_reviews_on_supplement_id_and_created_at"
+    t.index ["supplement_id"], name: "index_reviews_on_supplement_id"
+    t.index ["user_id", "created_at"], name: "index_reviews_on_user_id_and_created_at"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
   create_table "supplements", force: :cascade do |t|
@@ -79,5 +95,8 @@ ActiveRecord::Schema.define(version: 2020_07_26_065947) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "microposts", "supplements"
   add_foreign_key "microposts", "users"
+  add_foreign_key "reviews", "supplements"
+  add_foreign_key "reviews", "users"
 end

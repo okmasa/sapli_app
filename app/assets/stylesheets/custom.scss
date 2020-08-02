@@ -244,3 +244,35 @@ span.image {
   font-family: 'ヒラギノ角ゴ StdN','Hiragino Kaku Gothic StdN',sans-serif;
   font-weight: bold;
 }
+
+
+/* reviews */
+
+.reviews {
+  list-style: none;
+  padding: 0;
+  li {
+    padding: 10px 0;
+    border-top: 1px solid #e8e8e8;
+  }
+  .user {
+    margin-top: 5em;
+    padding-top: 0;
+  }
+  .score{
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+  .content {
+    display: block;
+    padding: 0.5em 0;
+    img {
+      display: block;
+      padding: 5px 0;
+    }
+  }
+  .timestamp {
+    color: $gray-light;
+    display: block;
+  }
+}

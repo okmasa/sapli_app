@@ -5,12 +5,13 @@ class UserTest < ActiveSupport::TestCase
   def setup
     @user = User.new(name: "Example User", email: "user@example.com",
                      password: "foobar",   password_confirmation: "foobar")
+    @supplement = supplements(:vitaminC)
   end
 
   test "should be valid" do
     assert @user.valid?
   end
-
+  
   test "name should be present" do
     @user.name = "     "
     assert_not @user.valid?
@@ -80,6 +81,15 @@ class UserTest < ActiveSupport::TestCase
     @user.save
     @user.microposts.create!(content: "Lorem ipsum")
     assert_difference 'Micropost.count', -1 do
+      @user.destroy
+    end
+  end
+
+# user消すとreviewも消えることを確認
+  test "associated reviews should be destroyed" do
+    @user.save
+    @user.reviews.create!(content: "Lorem ipsum", supplement: @supplement)
+    assert_difference 'Review.count', -1 do
       @user.destroy
     end
   end

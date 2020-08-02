@@ -3,6 +3,9 @@ require 'test_helper'
 class SupplementTest < ActiveSupport::TestCase
 
   def setup
+    # @user = User.new(name: "Example User", email: "user@example.com",
+    #                  password: "foobar",   password_confirmation: "foobar")
+    @user = users(:michael)
     @supplement = supplements(:vitaminC)
   end
 
@@ -30,5 +33,13 @@ class SupplementTest < ActiveSupport::TestCase
     @supplement.save
     assert_not duplicate_supplement.valid?
   end
-
+  
+  test "associated reviews should be destroyed" do
+    @supplement.save
+    @supplement.reviews.create!(content: "Lorem ipsum", user: @user)
+    assert_difference 'Review.count', -31 do
+      @supplement.destroy
+    end
+  end
+  
 end

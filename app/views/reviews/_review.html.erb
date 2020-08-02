@@ -1,0 +1,28 @@
+<li id="review-<%= review.id %>">
+  <span class="user"><%= link_to review.user.name, review.user %></span>
+  <span class="score">
+    <span id="star-score-<%= review.id %>"></span>
+      <script>
+        $('#star-score-<%= review.id %>').raty({
+          size: 36,
+          starOff:  '<%= asset_path('star-off.png') %>',
+          starOn : '<%= asset_path('star-on.png') %>',
+          starHalf: '<%= asset_path('star-half.png') %>',
+          half: true,
+          readOnly: true,
+          score: <%= review.score %>,
+        });
+      </script>
+       | <%= @supplement.name %>
+  </span>
+  <span class="content"><%= review.content %></span>
+  <span class="timestamp">
+  <% if review.created_at %>
+    Posted <%= time_ago_in_words(review.created_at) %> ago.
+  <% end %>
+  <% if current_user?(review.user) %>
+  | <%= link_to "delete", review, method: :delete,
+                                  data: { confirm: "削除してよろしいですか？" } %>
+  <% end %>
+  </span>
+</li>

@@ -3,7 +3,7 @@
 <div class="row">
   <div class="col-md-6 col-md-offset-3 sapli-back-show">
     <h1 class="form_title"><%= @supplement.name %></h1>
-    <%= image_tag @supplement.img, class: "sapli-img"%>
+    <%= image_tag @supplement.img, class: "sapli-img" if @supplement.img.attached? %>
   </div>
   <div class="col-md-3">
     <%= link_to "編集", edit_supplement_path, class: 'btn btn-default' %>
@@ -12,6 +12,22 @@
                                            data: { confirm: "削除しますか？" } %>
     <% end %>
   </div>
+  <!-- 説明文 -->
   <div class="col-md-6 col-md-offset-3">
     <p style="font-size: 18px"><%= @supplement.description %></p>
+  </div>
+  <!-- 評価フォーム -->
+  <div class="col-md-6 col-md-offset-3">
+    <%= render 'shared/review_form_scoring' %>
+  </div>
+  <!-- 評価一覧 -->
+  <div class="col-md-6 col-md-offset-3">
+    <% if @supplement.reviews.any? %>
+      <ol class="reviews">
+        <%# <%= render @supplement.reviews %>
+        <%= render @review_item %>
+      </ol>
+    <% end %>
+    <%= will_paginate @review_item %>
+  </div>
 </div>

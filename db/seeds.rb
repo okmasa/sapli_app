@@ -38,7 +38,7 @@ following.each { |followed| user.follow(followed) }
 followers.each { |follower| follower.follow(user) }
 
 
-# サンプルアプリの作成
+# サンプルサプリの生成
 50.times do |n|
   suppli_name  = "example-sapli#{n+1}"
   sup = Supplement.create!(name:suppli_name)
@@ -46,6 +46,14 @@ followers.each { |follower| follower.follow(user) }
   # sup.total_score = 3
 end
 
+#サンプルレビューの生成
+users = User.order(:created_at).take(6)
+Faker::Config.locale = :en
+10.times do |n|
+  supplement = Supplement.find_by(id: n + 1)
+  content = Faker::Lorem.sentence(word_count: 5)
+  users.each { |user| user.reviews.create!(supplement: supplement, supplement_id: n + 1, content: content, score: rand(0..5))}
+end
 
 # 99.times do |n|
 #   suppli_name  = "example-sapli#{n+1}"
