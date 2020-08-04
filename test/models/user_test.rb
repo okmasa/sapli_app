@@ -88,7 +88,7 @@ class UserTest < ActiveSupport::TestCase
 # user消すとreviewも消えることを確認
   test "associated reviews should be destroyed" do
     @user.save
-    @user.reviews.create!(content: "Lorem ipsum", supplement: @supplement)
+    @user.reviews.create!(content: "Lorem ipsum", supplement: @supplement, score: 1)
     assert_difference 'Review.count', -1 do
       @user.destroy
     end

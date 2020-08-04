@@ -10,6 +10,20 @@
               　| <%= link_to "delete", sapli, method: :delete, 
                                                  data: { confirm: "削除しますか？" } %>
           <% end %>
+        <div class="score index_star">
+          <span id="star-score-<%= sapli.id %>"></span>
+            <script>
+              $('#star-score-<%= sapli.id %>').raty({
+                size: 22,
+                starOff:  '<%= asset_path('star-off.png') %>',
+                starOn : '<%= asset_path('star-on.png') %>',
+                starHalf: '<%= asset_path('star-half.png') %>',
+                half: true,
+                readOnly: true,
+                score: <%= sapli.reviews.average(:score) %>,
+              });
+            </script>
+          </div>
         </div>
       <% end %>
     </div>

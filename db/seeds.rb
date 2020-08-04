@@ -41,7 +41,8 @@ followers.each { |follower| follower.follow(user) }
 # サンプルサプリの生成
 50.times do |n|
   suppli_name  = "example-sapli#{n+1}"
-  sup = Supplement.create!(name:suppli_name)
+  sup = Supplement.create!(name: suppli_name,
+                           description: "サプリの説明文" * 10)
   sup.img.attach(io: File.open("./db/fixtures/noimage.jpg"), filename: "noimage.jpg")
   # sup.total_score = 3
 end

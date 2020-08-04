@@ -14,7 +14,7 @@ tau_manifesto:
   score: 3
   created_at: <%= 3.years.ago %>
   user_id: 2
-  supplement_id: 2
+  supplement_id: '2'
 
 cat_video:
   content: "Sad cats are sad: https://youtu.be/PKffm2uI4dk"
@@ -22,7 +22,7 @@ cat_video:
   user: archer
   score: 2
   user_id: 2
-  supplement_id: 2
+  supplement_id: '2'
 
 most_recent:
   content: "Writing a short test"

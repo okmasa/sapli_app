@@ -20,7 +20,11 @@ $gray-medium-light: #eaeaea;
 //universal
 
 body{
-  padding-top: 80px;
+  padding-top: 60px;
+  background-image: image-url('forest-opacity.png');
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: 100% auto;
 }
 
 //home
@@ -35,6 +39,22 @@ body{
 
 .btn-warning{
   margin: 20px
+}
+
+.ranking{
+  h1{
+    text-align: center;
+    font-weight: bold;
+    font-size: 28px;
+    // margin-left: 40px;
+    margin-bottom: 20px;
+    // border-top: 1px sollid #e8e8e8;
+  }
+}
+
+#rank{
+  color: rgba(161, 139, 10, 0.514);
+  font-weight: bold;
 }
 
 
@@ -144,8 +164,8 @@ input {
     padding-top: 0;
   }
   .content {
-    display: block;
-    margin-left: 60px;
+    // display: block;
+    margin-left: 10px;
     img {
       display: block;
       padding: 5px 0;
@@ -154,7 +174,7 @@ input {
   .timestamp {
     color: $gray-light;
     display: block;
-    margin-left: 60px;
+    // margin-left: 50px;
   }
 }
 
@@ -212,17 +232,18 @@ span.image {
 }
 
 .sapli-img {
-  width:  400px;       /* ※縦横を同値に */
-  height: 400px;       /* ※縦横を同値に */
+  width:  200px;       /* ※縦横を同値に */
+  height: 200px;       /* ※縦横を同値に */
   margin-top: 1em;
-  margin-bottom: 2em;
+  margin-bottom: 1em;
 }
 
 // supplement-index
 .sapli-back{
-  background: $gray-medium-light;
+  background: #f0f8ff;
   text-align: center;
   margin-bottom: 100px;
+  padding-bottom: 15px;
   border: 1px solid;
   p{
     font-family: 'ヒラギノ角ゴ StdN','Hiragino Kaku Gothic StdN',sans-serif;
@@ -231,19 +252,55 @@ span.image {
   }
 }
 
-//supplement-show
+.index_star{
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
 
+//supplement-show
 .sapli-back-show{
-  background: $gray-medium-light;
+  background: #f0f8ff;
   text-align: center;
-  margin-bottom: 1em;
+  margin-bottom: 2em;
   border: 1px solid;
+  .btn{
+    margin: 1em, 0, 2em;
+  }
 }
 
 .sapli_title{
   font-family: 'ヒラギノ角ゴ StdN','Hiragino Kaku Gothic StdN',sans-serif;
   font-weight: bold;
+  font-size: 24px
 }
+
+#star{
+  margin-bottom: 6px;
+}
+
+.sup_stats {
+  // overflow: auto;
+  margin-top: 0;
+  padding: 5px 0 0 40px;
+  text-align: right;
+  li {
+    list-style: none;
+    float: left;
+    padding: 0 10px;
+    border-left: 1.5px solid $gray-light;
+    // color: gray;
+    &:first-child {
+      padding-left: 50;
+      border: 0;
+    }
+  }
+  strong {
+    font-size: 20px;
+    display: block;
+    margin: 0 auto;
+  }
+}
+
 
 
 /* reviews */
@@ -264,7 +321,8 @@ span.image {
     margin-right: 5px;
   }
   .content {
-    display: block;
+    // display: block;
+    margin-left: 10px;
     padding: 0.5em 0;
     img {
       display: block;
@@ -274,5 +332,16 @@ span.image {
   .timestamp {
     color: $gray-light;
     display: block;
+    // margin-left: 50px;
   }
+}
+
+//投稿のユーザ画像
+.user_img_post {
+  overflow: auto;
+  margin-top: 10px;
+  border-radius: 50%;
+  width:  40px;       /* ※縦横を同値に */
+  height: 40px;       /* ※縦横を同値に */
+  margin-bottom: 1em;
 }
