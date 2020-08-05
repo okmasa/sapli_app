@@ -4,7 +4,7 @@ class StaticPagesController < ApplicationController
     if logged_in?
       @user = current_user
       @micropost  = current_user.microposts.build
-      @feed_items = current_user.feed.paginate(page: params[:page])
+      @feed_items = current_user.feed.paginate(page: params[:page], per_page: 3 )
     end
     # ランキング機能
     # @ranks = Supplement.find(Review.group(:supplement_id).average(:score).order('average(:score) desc').take(3).pluck(:supplement_id))

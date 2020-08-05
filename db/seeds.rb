@@ -44,7 +44,6 @@ followers.each { |follower| follower.follow(user) }
   sup = Supplement.create!(name: suppli_name,
                            description: "サプリの説明文" * 10)
   sup.img.attach(io: File.open("./db/fixtures/noimage.jpg"), filename: "noimage.jpg")
-  # sup.total_score = 3
 end
 
 #サンプルレビューの生成

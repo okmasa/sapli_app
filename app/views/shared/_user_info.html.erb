@@ -1,3 +1,5 @@
-<h1><%= current_user.name %></h1>
-<span><%= link_to "プロフィールページへ", current_user %></span>
-<span>投稿数：<%= current_user.microposts.count %></span>
+<h1>
+<%= current_user.name %>
+<span style="font-size: 14px"><%= link_to "[編集]", edit_user_path(current_user) %></span>
+</h1>
+<span style="margin-left: 150px"><%= link_to "プロフィールページへ", current_user %></span>

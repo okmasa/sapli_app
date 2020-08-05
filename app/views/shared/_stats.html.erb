@@ -1,4 +1,5 @@
 <% @user ||= current_user %>
+
 <div class="stats">
   <a href="<%= following_user_path(@user) %>">
     <strong id="following" class="stat">
@@ -12,4 +13,25 @@
     </strong>
     フォロワー
   </a>
+  <a href="<%= followers_user_path(@user) %>">
+    <strong id="favorire" class="stat">
+      <%= "（サプリ数）" %>
+    </strong>
+    お気に入りサプリ
+  </a>
+</div>
+<%# 投稿数評価数 %>
+<div class="stats2">
+  <p>
+    <strong id="mpcount" class="stat">
+      <%= current_user.microposts.count %>
+    </strong>
+    投稿数
+  </p>
+  <p>
+    <strong id="spcount" class="stat">
+      <%= current_user.reviews.count %>
+    </strong>
+    サプリ評価数
+  </p>
 </div>

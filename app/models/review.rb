@@ -6,5 +6,5 @@ class Review < ApplicationRecord
   # validates :supplement_id, presence: true
   validates :content, length: { maximum: 140 }
   validates :score, presence: true, numericality: { greater_than_or_equal_to: 0,
-  less_than_or_equal_to:    5 }
+                                                    less_than_or_equal_to:    5 }
 end

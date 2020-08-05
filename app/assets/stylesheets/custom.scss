@@ -21,13 +21,17 @@ $gray-medium-light: #eaeaea;
 
 body{
   padding-top: 60px;
+  background-color: rgba(217, 255, 217, 0.253);
+}
+
+//home
+
+.home{
   background-image: image-url('forest-opacity.png');
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-size: 100% auto;
 }
-
-//home
 
 .homebody{
   text-align: center;
@@ -179,6 +183,7 @@ input {
 }
 
 aside {
+  text-align: center;
   textarea {
     height: 100px;
     margin-bottom: 5px;
@@ -197,7 +202,9 @@ span.image {
 
 .stats {
   overflow: auto;
-  margin-top: 0;
+  width: 300px;
+  margin: 0 auto;
+  margin-top: 10px;
   padding: 0;
   a {
     float: left;
@@ -218,6 +225,26 @@ span.image {
   }
 }
 
+.stats2 {
+  overflow: auto;
+  margin-top: 0;
+  margin-left: 70px;
+  padding: 0;
+  p {
+    float: left;
+    padding: 0 10px;
+    border-left: 1px solid $gray-lighter;
+    color: rgb(78, 78, 78);
+    &:first-child {
+      padding-left: 0;
+      border: 0;
+    }
+  }
+  strong {
+    display: block;
+  }
+}
+
 .users.follow {
   padding: 0;
 }
@@ -228,6 +255,7 @@ span.image {
   border-radius: 50%;
   width:  200px;       /* ※縦横を同値に */
   height: 200px;       /* ※縦横を同値に */
+  // margin-left: 60px;
   margin-bottom: 1em;
 }
 
@@ -239,6 +267,15 @@ span.image {
 }
 
 // supplement-index
+.sapli_index{
+  h1,h2{
+    margin-left: 100px;
+  }
+  .index_paginate{
+    margin-left: 100px;
+  }
+}
+
 .sapli-back{
   background: #f0f8ff;
   text-align: center;
