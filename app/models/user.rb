@@ -2,6 +2,9 @@ class User < ApplicationRecord
   has_many :microposts, dependent: :destroy
   has_many :reviews,    dependent: :destroy
   has_many :supplements, through: :reviews
+  has_many :favorites,  dependent: :destroy
+  has_many :favorite_supplements, through: :favorites,
+                                   source: :supplement
   # accepts_nested_attributes_for :reviews
   has_many :active_relationships, class_name:  "Relationship",
                                   foreign_key: "follower_id",

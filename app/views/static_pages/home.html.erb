@@ -5,10 +5,16 @@
   <% else %>
     <%= render 'shared/home_not_logged_in'%>
   <% end %>
-  <div class="row ranking">
+</div>
+<%unless logged_in? %>
+  <div class="row ranking-not-loggin">
+  <% else %>
+  <div class="row ranking-loggin">
+<% end %>
   <h1>高評価サプリランキング</h1>
+    <div class="container">
     <% @top_sapli.each.with_index(1) do |sapli, i| %>
-      <div class="col-md-4 sapli-back">
+      <div class="col-md-4 sapli-back-rank">
         <h3 id="rank"><%= i %>位</h3>
         <% if sapli.img.attached? %>
           <%=link_to (image_tag sapli.img, size:200), sapli, class: "sapli_img" %><br>

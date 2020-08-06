@@ -13,8 +13,16 @@
       <%= render 'shared/micropost_form' %>
     </section>
   </aside>
-  <div class="col-md-8">
-    <h3>最近の投稿</h3>
+  <div class="col-md-4">
+    <h3 style="font-weight: bold; color: brown">フィード</h3>
     <%= render 'shared/feed' %>
+  </div>
+  <div class="col-md-4 reviews" style="border-left: 2px dashed #ffddff">
+    <h3 style="font-weight: bold; color: brown">最近つけた評価</h3>
+    <%= render @reviews %>
+  </div>
+  <div class="col-md-8" style="border-top: 2px dashed #ffddff">
+    <h3 style="font-weight: bold; color: brown">お気に入りサプリ</h3>
+    <%= render 'shared/favorites' %>
   </div>
 </div>

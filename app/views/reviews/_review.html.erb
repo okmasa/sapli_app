@@ -1,5 +1,15 @@
 <li id="review-<%= review.id %>">
+  <%# ユーザ画像 %>
+  <span>
+    <% if review.user.img.attached? %>
+      <%=link_to image_tag(review.user.display_image, class: "user_img_post"), review.user %>
+    <% else %>
+      <%=link_to image_tag("/assets/default.jpg",  class:"user_img_post"), review.user %>
+    <% end %>
+  </span>
+  <%# ユーザ名 %>
   <span class="user"><%= link_to review.user.name, review.user %></span>
+  <%# スコア %>
   <span class="score">
     <span id="star-score-<%= review.id %>"></span>
       <script>
@@ -13,23 +23,15 @@
           score: <%= review.score %>,
         });
       </script>
-       | <%= @supplement.name %>
-  </span>
-  <%# ユーザ画像 %>
-  <br>
-  <span>
-    <% if review.user.img.attached? %>
-      <%=link_to image_tag(review.user.display_image, class: "user_img_post"), review.user %>
-    <% else %>
-      <%=link_to image_tag("/assets/default.jpg",  class:"user_img_post"), review.user %>
-    <% end %>
+       | <%= link_to review.supplement.name, review.supplement%>
   </span>
   <%# 投稿 %>
+  <br>
   <span class="content"><%= review.content %></span>
   <%# タイムスタンプ %>
   <span class="timestamp">
   <% if review.created_at %>
-    Posted <%= time_ago_in_words(review.created_at) %> ago.
+    <%= time_ago_in_words(review.created_at) %> ago.
   <% end %>
   <% if current_user?(review.user) %>
   | <%= link_to "delete", review, method: :delete,

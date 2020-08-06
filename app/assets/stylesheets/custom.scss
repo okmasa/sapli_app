@@ -45,22 +45,26 @@ body{
   margin: 20px
 }
 
-.ranking{
+.ranking-not-loggin{
+  margin-top: 40px;
   h1{
     text-align: center;
     font-weight: bold;
     font-size: 28px;
-    // margin-left: 40px;
     margin-bottom: 20px;
-    // border-top: 1px sollid #e8e8e8;
   }
 }
 
-#rank{
-  color: rgba(161, 139, 10, 0.514);
-  font-weight: bold;
+.ranking-loggin{
+  margin-top: 40px;
+  background-image: image-url('forest-opacity.png');
+  h1{
+    text-align: center;
+    font-weight: bold;
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
 }
-
 
 // header
 
@@ -160,7 +164,7 @@ input {
   list-style: none;
   padding: 0;
   li {
-    padding: 10px 0;
+    padding: 0 0;
     border-top: 1px solid #e8e8e8;
   }
   .user {
@@ -170,6 +174,7 @@ input {
   .content {
     // display: block;
     margin-left: 10px;
+    padding-top: 5px;
     img {
       display: block;
       padding: 5px 0;
@@ -178,11 +183,12 @@ input {
   .timestamp {
     color: $gray-light;
     display: block;
-    // margin-left: 50px;
+    text-align: right;
   }
 }
 
 aside {
+  background-color: #f5f5f5;
   text-align: center;
   textarea {
     height: 100px;
@@ -289,6 +295,42 @@ span.image {
   }
 }
 
+.sapli-back-home{
+  background: #f0f8ff;
+  text-align: center;
+  margin-bottom: 10px;
+  border: 1px solid;
+  p{
+    font-family: 'ヒラギノ角ゴ StdN','Hiragino Kaku Gothic StdN',sans-serif;
+    font-size: 14px;
+    margin: 10px 0;
+  }
+ &:nth-child(n+2){
+    border-left: 0;
+  }
+}
+
+.sapli-back-rank{
+  background: rgba(59, 59, 59, 0.8);
+  text-align: center;
+  margin-bottom: 10px;
+  padding-bottom: 15px;
+  border: 1px solid white;
+  #rank{
+    color: #fffb00;
+    font-weight: bold;
+  }
+  p{
+    color: #e7e301;
+    font-family: 'ヒラギノ角ゴ StdN','Hiragino Kaku Gothic StdN',sans-serif;
+    font-size: 18px;
+    margin: 10px 0;
+  }
+ &:nth-child(n+2){
+    border-left: 0;
+  }
+}
+
 .index_star{
   padding-top: 5px;
   padding-bottom: 5px;
@@ -317,9 +359,11 @@ span.image {
 
 .sup_stats {
   // overflow: auto;
-  margin-top: 0;
-  padding: 5px 0 0 40px;
-  text-align: right;
+  margin-top: 5px;
+  width: 350px;
+  padding: 5px 0 0 50px;
+  // text-align: center;
+  margin: 0 auto;
   li {
     list-style: none;
     float: left;
@@ -346,14 +390,14 @@ span.image {
   list-style: none;
   padding: 0;
   li {
-    padding: 10px 0;
+    padding: 0;
     border-top: 1px solid #e8e8e8;
   }
   .user {
     margin-top: 5em;
     padding-top: 0;
   }
-  .score{
+  .score {
     margin-left: 5px;
     margin-right: 5px;
   }
@@ -369,7 +413,7 @@ span.image {
   .timestamp {
     color: $gray-light;
     display: block;
-    // margin-left: 50px;
+    text-align: right;
   }
 }
 
@@ -378,7 +422,7 @@ span.image {
   overflow: auto;
   margin-top: 10px;
   border-radius: 50%;
-  width:  40px;       /* ※縦横を同値に */
-  height: 40px;       /* ※縦横を同値に */
+  width:  30px;       /* ※縦横を同値に */
+  height: 30px;       /* ※縦横を同値に */
   margin-bottom: 1em;
 }

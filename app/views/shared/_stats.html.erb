@@ -15,7 +15,7 @@
   </a>
   <a href="<%= followers_user_path(@user) %>">
     <strong id="favorire" class="stat">
-      <%= "（サプリ数）" %>
+      <%= @user.favorites.count %>
     </strong>
     お気に入りサプリ
   </a>
