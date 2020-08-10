@@ -1,20 +1,25 @@
 <% provide(:title, @title) %>
-<div class="row">
-  <aside class="col-md-4">
-    <section class="user_info">
-      <span><%= render 'shared/user_img' %></span>
-      <h1><%= @user.name %></h1>
-      <span><%= link_to "プロフィールページへ", @user %></span>
-      <span><b>投稿数:</b> <%= @user.microposts.count %></span>
-    </section>
-  </aside>
-  <div class="col-md-8">
-    <h3><%= @title %></h3>
-    <% if @users.any? %>
-      <ul class="users follow">
-        <%= render @users %>
-      </ul>
-      <%= will_paginate %>
-    <% end %>
-  </div>
+<div class="container">
+  <%# <div class="row">
+    <aside class="col-md-4">
+      <section class="user-img">
+        <%= render 'shared/user_img' %>
+      <%# </section>
+      <section class="user_info">
+        <%= render 'shared/user_info' %>
+      <%# </section>
+      <section class="stats">
+        <%= render 'shared/stats' %>
+      <%# </section>
+    </aside> %>
+      <h3><%= @user.name %>の<%= @title %></h3>
+      <% if @users.any? %>
+        <ul class="users follow">
+          <%= render 'users/user' %>
+        </ul>
+        <div class="col-md-10">
+          <%= will_paginate %>
+        </div>
+      <% end %>
+    </div>
 </div>

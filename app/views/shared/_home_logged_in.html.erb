@@ -1,6 +1,6 @@
 <div class="row">
   <aside class="col-md-4">
-    <section>
+    <section  class= "user-img">
       <%= render 'shared/user_img' %>
     </section>
     <section class="user_info">
@@ -9,20 +9,29 @@
       <section class="stats">
         <%= render 'shared/stats' %>
       </section>
-    <section class="micropost_form">
+    <%# <section class="micropost_form">
       <%= render 'shared/micropost_form' %>
-    </section>
+    <%# </section> %>
   </aside>
   <div class="col-md-4">
-    <h3 style="font-weight: bold; color: brown">フィード</h3>
+    <h3 class="home-h3">
+      <%= link_to "最近のフィード", user_path(@user) %>
+    </h3>
+    <span><%= link_to "[more]", user_path(@user) %></span>
     <%= render 'shared/feed' %>
   </div>
-  <div class="col-md-4 reviews" style="border-left: 2px dashed #ffddff">
-    <h3 style="font-weight: bold; color: brown">最近つけた評価</h3>
+  <div class="col-md-4 reviews" style="border-left: 2px dashed skyblue; padding-left: 15px;">
+    <h3 class="home-h3">
+    <%= link_to "最近つけた評価", reviews_user_path(@user) %>
+    </h3>
+    <span><%= link_to "[more]", reviews_user_path(@user) %></span>
     <%= render @reviews %>
   </div>
-  <div class="col-md-8" style="border-top: 2px dashed #ffddff">
-    <h3 style="font-weight: bold; color: brown">お気に入りサプリ</h3>
+  <div class="col-md-8" style="border-top: 2px dashed skyblue">
+    <h3 class="home-h3">
+      <%= link_to "お気に入りサプリ", favorites_user_path(@user) %>
+    </h3>
+    <span><%= link_to "[more]", favorites_user_path(@user) %></span>
     <%= render 'shared/favorites' %>
   </div>
 </div>

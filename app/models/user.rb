@@ -3,8 +3,9 @@ class User < ApplicationRecord
   has_many :reviews,    dependent: :destroy
   has_many :supplements, through: :reviews
   has_many :favorites,  dependent: :destroy
-  has_many :favorite_supplements, through: :favorites,
-                                   source: :supplement
+  has_many :favorite_supplements, through:   :favorites,
+                                  source:    :supplement,
+                                  dependent: :destroy
   # accepts_nested_attributes_for :reviews
   has_many :active_relationships, class_name:  "Relationship",
                                   foreign_key: "follower_id",
@@ -84,7 +85,7 @@ class User < ApplicationRecord
                      WHERE follower_id = :user_id"
                      Micropost.where("user_id IN (#{following_ids})
                      OR user_id = :user_id", user_id: id)
-                    end
+  end
                     
   #reviewのフィード
   def feed_review

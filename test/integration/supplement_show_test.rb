@@ -6,7 +6,7 @@ class UsersProfileTest < ActionDispatch::IntegrationTest
 
   def setup
     @user = users(:michael)
-    @supplement = supplements(:vitaminC)
+    @supplement = supplements(:example_sapli)
   end
 
   test "supplement_show display" do

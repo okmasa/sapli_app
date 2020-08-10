@@ -45,6 +45,19 @@ body{
   margin: 20px
 }
 
+.favo-btn{
+  margin: 20px
+}
+
+.home-h3{
+  font-weight: bold;
+  margin-top: 8px;
+  a{
+  color: brown;
+  }
+  display: inline-block;
+}
+
 .ranking-not-loggin{
   margin-top: 40px;
   h1{
@@ -148,12 +161,15 @@ input {
 /* Users index */
 
 .users {
-  list-style: none;
-  margin: 0;
-  li {
-    overflow: auto;
-    padding: 10px 0;
-    border-bottom: 1px solid $gray-lighter;
+  background-color:#D3EDC4;
+  margin-top: 20px;
+  margin-bottom: 40px;
+  // border: 1px solid gray;
+  border: 1px solid gray;
+  border-radius: 10px;
+  .user-stats{
+    text-align: center;
+    // font-weight: bold;
   }
 }
 
@@ -163,7 +179,7 @@ input {
 .microposts {
   list-style: none;
   padding: 0;
-  li {
+    li {
     padding: 0 0;
     border-top: 1px solid #e8e8e8;
   }
@@ -203,6 +219,10 @@ span.image {
   }
 }
 
+.user_info{
+  text-align: center;
+}
+
 
 /* sidebar */
 
@@ -215,7 +235,7 @@ span.image {
   a {
     float: left;
     padding: 0 10px;
-    border-left: 1px solid $gray-lighter;
+    border-left: 1px solid gray;
     color: gray;
     &:first-child {
       padding-left: 0;
@@ -239,7 +259,7 @@ span.image {
   p {
     float: left;
     padding: 0 10px;
-    border-left: 1px solid $gray-lighter;
+    border-left: 1px solid gray;
     color: rgb(78, 78, 78);
     &:first-child {
       padding-left: 0;
@@ -252,23 +272,32 @@ span.image {
 }
 
 .users.follow {
-  padding: 0;
+  margin-bottom: 20px;
 }
 
 
 /* image */
 .user-img {
+  text-align: center;
+  img{
   border-radius: 50%;
-  width:  200px;       /* ※縦横を同値に */
-  height: 200px;       /* ※縦横を同値に */
+  width:  85%;       /* ※縦横を同値に */
+  // height: 200px;       /* ※縦横を同値に */
   // margin-left: 60px;
-  margin-bottom: 1em;
+  margin: 1em 0;
+  }
 }
 
 .sapli-img {
+  width:  85%;       /* ※縦横を同値に */
+  // height: 200px;       /* ※縦横を同値に */
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+.sapli-img-show {
   width:  200px;       /* ※縦横を同値に */
   height: 200px;       /* ※縦横を同値に */
-  margin-top: 1em;
   margin-bottom: 1em;
 }
 
@@ -287,7 +316,8 @@ span.image {
   text-align: center;
   margin-bottom: 100px;
   padding-bottom: 15px;
-  border: 1px solid;
+  border: 1px solid gray;
+  border-radius: 10px;
   p{
     font-family: 'ヒラギノ角ゴ StdN','Hiragino Kaku Gothic StdN',sans-serif;
     font-size: 18px;
@@ -305,7 +335,7 @@ span.image {
     font-size: 14px;
     margin: 10px 0;
   }
- &:nth-child(n+2){
+  &:nth-child(n+2){
     border-left: 0;
   }
 }

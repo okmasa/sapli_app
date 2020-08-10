@@ -2,7 +2,7 @@ class Supplement < ApplicationRecord
   has_many :reviews, dependent: :destroy
   has_many :users, through: :reviews
   has_many :favorites
-  validates :name, presence: true, uniqueness: true, length: { maximum: 50 }
+  validates :name, presence: true, uniqueness: true, length: { maximum: 20 }
   has_one_attached :img
   validates :img, content_type: { in:      %w[image/jpeg image/gif image/png],
   message: "画像フォーマットが正しくありません" },

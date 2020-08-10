@@ -1,17 +1,19 @@
 class UsersController < ApplicationController
   before_action :logged_in_user, only: [:index, :edit, :update, :destroy,
-                                        :following, :followers]
+                                        :following, :followers, :reviews,
+                                        :favorites, :microposts]
   before_action :correct_user,   only: [:edit, :update]
   before_action :admin_user,     only: [:destroy]
 
   def index
-    @users = User.where(activated: true).paginate(page: params[:page], per_page: 20)
+    @users = User.where(activated: true).paginate(page: params[:page], per_page: 12)
   end
 
   def show
     @user = User.find(params[:id])
     redirect_to root_url and return unless @user.activated?
-    @microposts = @user.microposts.paginate(page: params[:page])
+    @microposts = @user.microposts.paginate(page: params[:page], per_page: 5)
+    @feed_items = @user.feed.paginate(page: params[:page])
   end
 
   def new
@@ -63,6 +65,28 @@ class UsersController < ApplicationController
     render 'show_follow'
   end
 
+  def reviews
+    @title = "サプリ評価一覧"
+    @user  = User.find(params[:id])
+    @reviews = @user.reviews.paginate(page:params[:page], per_page: 20)
+    render 'show_reviews'
+  end
+
+  def favorites
+    @title = "お気に入りサプリ一覧"
+    @user  = User.find(params[:id])
+    @supplements = @user.favorite_supplements.paginate(page:params[:page], per_page: 12)
+    render 'show_favorites'
+  end
+
+  def microposts
+    @title = "投稿一覧"
+    @user  = User.find(params[:id])
+    @micropost  = current_user.microposts.build
+    @microposts = @user.microposts.paginate(page:params[:page])
+    render 'show_microposts'
+  end
+
   private
 
     def user_params
@@ -76,6 +100,7 @@ class UsersController < ApplicationController
       @user = User.find(params[:id])
       redirect_to(root_url) unless current_user?(@user)
     end
+
 
     def admin_user
       redirect_to(root_url) unless current_user.admin?

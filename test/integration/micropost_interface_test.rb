@@ -8,7 +8,7 @@ class MicropostInterfaceTest < ActionDispatch::IntegrationTest
 
   test "micropost interface" do
     log_in_as(@user)
-    get root_path
+    get microposts_user_path(@user)
     assert_select 'div.pagination'
     assert_select 'input[type=file]'
     # 無効な送信
@@ -41,13 +41,13 @@ class MicropostInterfaceTest < ActionDispatch::IntegrationTest
 
   test "micropost sidebar count" do
     log_in_as(@user)
-    get root_path
-    assert_match "投稿数：#{@user.microposts.count}", response.body
+    get microposts_user_path(@user)
+    assert_match "#{@user.microposts.count}", response.body
     # まだマイクロポストを投稿していないユーザー
     other_user = users(:malory)
     log_in_as(other_user)
-    get root_path
-    assert_match "投稿数：0", response.body
+    get microposts_user_path(other_user)
+    assert_match "0", response.body
     other_user.microposts.create!(content: "A micropost")
     get root_path
     assert_match "A micropost", response.body

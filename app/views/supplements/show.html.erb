@@ -4,19 +4,17 @@
   <div class="col-md-8 col-md-offset-2 sapli-back-show">
     <h1 class="sapli_title"><%= @supplement.name %></h1>
     <%# お気に入りの数 %>
-    <p>お気に入り数：<%= @supplement.favorites.count %>
+    <p>お気に入り登録ユーザー：<%= @supplement.favorites.count %>
     <%# お気に入り登録ボタン %>
     <% if logged_in? %>
       <% if @supplement.favorited_by?(current_user) %>
         <p><%=link_to "お気に入り解除", supplement_favorites_path(@supplement.id), method: :delete, class: 'btn btn-warning'%></p>
       <% else %>
-        <p><%=link_to "お気に入り登録", supplement_favorites_path(@supplement.id), method: :post, class: 'btn btn-primary'%></p>
+        <p><%=link_to "お気に入り登録", supplement_favorites_path(@supplement.id), method: :post, class: 'btn btn-primary favo-btn'%></p>
       <% end %>
-    <% else %>
-      <p><span>お気に入り数: </span><%= @supplement.favorites.count %></p>
     <% end %>
   <%# サプリ画像 %>
-    <div><%= image_tag @supplement.img, class: "sapli-img" if @supplement.img.attached? %></div>
+    <div><%= image_tag @supplement.img, class: "sapli-img-show" if @supplement.img.attached? %></div>
     <div class="col-md-6 col-md-offset-3 btn">
       <%= link_to "編集", edit_supplement_path, class: 'btn btn-default' %>
       <% if current_user && current_user.admin? %>

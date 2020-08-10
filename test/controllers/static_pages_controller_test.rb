@@ -13,5 +13,5 @@ class StaticPagesControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
     assert_select "title", "使い方 | サプリアプリ"
   end
-
+  
 end

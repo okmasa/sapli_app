@@ -1,4 +1,4 @@
-<%= provide(:title, @user.name) %>
+<% provide(:title, @title) %>
 <div class="container">
   <div class="row">
     <aside class="col-md-4">
@@ -12,14 +12,14 @@
         <%= render 'shared/stats' %>
       </section>
     </aside>
-    <div class="col-md-8">
-      <%= render 'follow_form' if logged_in? %>
-      <% if @feed_items.any? %>
-        <h3>フィード</h3>
-        <ol class="microposts">
-          <%= render 'shared/feed' %>
-        </ol>
-        <%= will_paginate @feed_items %>
+    <div class="col-md-8" style="margin-top: -10px">
+      <h3><%= @user.name %>の<%= @title %>（<%= @user.reviews.count %>）</h3>
+      <span><%= link_to "サプリリストへ", supplements_path %></span>
+      <% if @reviews.any? %>
+        <ul class="reviews">
+          <%= render @reviews %>
+        </ul>
+        <%= will_paginate @reviews%>
       <% end %>
     </div>
   </div>
