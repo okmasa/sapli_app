@@ -11,7 +11,7 @@ class StaticPagesController < ApplicationController
     # @ranks = Supplement.find(Review.group(:supplement_id).average(:score).order('average(:score) desc').take(3).pluck(:supplement_id))
     #-------------------------------------------------------------------
     # idごとにスコアを平均値化
-    ave = Review.group(:supplement_id).average(:score)
+    ave = Review.group(:supplement_id).reorder(nil).average(:score)
     # 降順にソートしてトップ３を抜き出す
     sort = Hash[ ave.sort_by{ |_, v| -v } ]
     @top_sapli = Supplement.find(sort.keys.take(3))
