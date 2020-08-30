@@ -1,5 +1,6 @@
 <div class="container-fruid", style="margin-right: 100px">
     <div class="row">
+      <% @supplements = @supplements.order(updated_at: "DESC") %>
       <% @supplements.each do |sapli| %>
         <div class="col-md-3 col-md-offset-1 sapli-back">
           <% if sapli.img.attached? %>

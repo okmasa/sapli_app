@@ -6,12 +6,12 @@ class MicropostsController < ApplicationController
     @micropost = current_user.microposts.build(micropost_params)
     @micropost.image.attach(params[:micropost][:image])
     @user = current_user
+    @feed_items = current_user.feed.paginate(page: params[:page])
     if @micropost.save
       flash[:success] = "投稿が完了しました！"
       redirect_to microposts_user_path(current_user)
       # redirect_to request.referrer || root_url
     else
-      @feed_items = current_user.feed.paginate(page: params[:page])
       flash[:danger] = "無効な投稿です"
       # redirect_to root_url
       redirect_to microposts_user_path(current_user)

@@ -158,6 +158,46 @@ input {
   margin-left: 0;
 }
 
+/* about */
+.about {
+  img {
+    // width: 700px;
+    // height: 320px;
+    width: 90%;
+    height: 90%;
+    display: block;
+    margin: 5px auto;
+  }
+  a{
+    color: yellow;
+  }
+  .p1{
+    color: white;
+    font-weight: bold;
+    font-size: 24px;
+    text-align: center;
+    margin-top: 130px;
+    margin-bottom: 200px;
+  }
+  .p2{
+    color: white;
+    font-weight: bold;
+    font-size: 22px;
+    text-align: center;
+    margin-top: 100px;
+    margin-bottom: 100px;
+  }
+  .p3{
+    color: white;
+    font-weight: bold;
+    font-size: 22px;
+    text-align: center;
+    margin-top: 200px;
+    margin-bottom: 200px;
+  }
+}
+
+
 /* Users index */
 
 .users {
@@ -281,8 +321,8 @@ span.image {
   text-align: center;
   img{
   border-radius: 50%;
-  width:  85%;       /* ※縦横を同値に */
-  // height: 200px;       /* ※縦横を同値に */
+  width:  250px;      /* ※縦横を同値に */
+  height: 250px;       /* ※縦横を同値に */
   // margin-left: 60px;
   margin: 1em 0;
   }
