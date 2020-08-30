@@ -1,8 +1,46 @@
 <% provide(:title, "使い方") %>
-<body class="home">
-  <h1>このアプリは</h1>
-  <p>
-    サプリの評価SNSです。
-    サプリをお気に入り登録して、便利なサプリを記録しましょう
-  </p>
+  <body class="home">
+  <div class="container">
+    <div class="row about">
+      <div class="col-md-7">
+        <%= link_to image_tag("list.png", alt: "サプリリスト"), supplements_path %>
+      </div>
+      <div class="col-md-5">
+        <p class="p1">
+        <a href= supplements>サプリリスト</a>で気になるサプリを<br>探しましょう<br><br>
+
+        </p>
+      </div>
+      <div class="col-md-5">
+      <p class="p2">
+        サプリページでは<br>みんなの評価を見ることができます
+        <br>気に入ったサプリは<br>
+        お気に入り登録しましょう
+      </p>
+      </div>
+      <div class="col-md-7">
+        <%= image_tag("saplipage.png", alt: "サプリページ") %>
+      </div>
+      <div class="col-md-7" style="margin-bottom: 20px">
+        <%= image_tag("otheruser.png", alt: "他のユーザ") %>
+      </div>
+      <div class="col-md-5" style="margin-bottom: 30px">
+        <p class="p2">
+          ユーザをフォローして<br>どんなサプリを評価しているのか<br>見てみましょう<br><br>
+          つぶやきも見れます
+        </p>
+      </div>
+      <div class="col-md-5">
+        <p class="p3">
+          <a href= "/">ホーム画面</a>で<br>
+          フィード/サプリ評価<br>お気に入りサプリ/自分のつぶやき
+          <br>を参照できます<br><br>
+          サプリの総合ランキングも<br>見ることができます
+        </p>
+      </div>
+      <div class="col-md-7">
+        <%= link_to image_tag("homeexample.png", alt: "ホーム画面"), root_path %>
+      </div>
+    </div>
+  </div>
 <body>

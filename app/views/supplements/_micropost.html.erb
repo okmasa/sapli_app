@@ -5,7 +5,7 @@
     <% if review.user.img.attached? %>
       <%=link_to image_tag(@user.display_image, class: "user_img_post"), @user %>
     <% else %>
-      <%=link_to image_tag("/assets/default.jpg",  class: "user_img_post"), @user %>
+      <%=link_to image_tag("default.jpg",  class: "user_img_post"), @user %>
     <% end %>
   </span>
   <span class="content">
