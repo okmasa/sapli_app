@@ -110,18 +110,38 @@ Rails.application.configure do
   # config.active_record.database_resolver = ActiveRecord::Middleware::DatabaseSelector::Resolver
   # config.active_record.database_resolver_context = ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
 
-  config.action_mailer.raise_delivery_errors = true
-  config.action_mailer.delivery_method = :smtp
-  host = 'https://piscine-madame-38529.herokuapp.com/'
-  config.action_mailer.default_url_options = { host: host }
-  ActionMailer::Base.smtp_settings = {
-    :address        => 'smtp.sendgrid.net',
-    :port           => '587',
-    :authentication => :plain,
-    :user_name      => ENV['SENDGRID_USERNAME'],
-    :password       => ENV['SENDGRID_PASSWORD'],
-    :domain         => 'heroku.com',
-    :enable_starttls_auto => true
-  }
+  #actionmailer setting with sendgrid
+  # config.action_mailer.raise_delivery_errors = true
+  # config.action_mailer.delivery_method = :smtp
+  # host = 'https://piscine-madame-38529.herokuapp.com/'
+  # config.action_mailer.default_url_options = { host: host }
+  # ActionMailer::Base.smtp_settings = {
+  #   :address        => 'smtp.sendgrid.net',
+  #   :port           => '587',
+  #   :authentication => :plain,
+  #   :user_name      => ENV['SENDGRID_USERNAME'],
+  #   :password       => ENV['SENDGRID_PASSWORD'],
+  #   :domain         => 'heroku.com',
+  #   :enable_starttls_auto => true
+  # }
+
+    # ActionMailer Setting with AWS SES
+    config.action_mailer.default_url_options = {  :host => 'http://sapliapli.com' }
+    #送信方法を指定（この他に:sendmail/:file/:testなどがあります)
+    config.action_mailer.delivery_method = :smtp
+    #送信方法として:smtpを指定した場合は、このconfigを使って送信詳細の設定を行います
+    config.action_mailer.smtp_settings = {
+      #gmail利用時はaddress,domain,portは下記で固定
+      address:"smtp.gmail.com",
+      domain: 'gmail.com',
+      port:587,
+      #gmailのユーザアカウント（xxxx@gmail.com)※念のため、credentials.yml.enc行き
+      user_name: Rails.application.credentials.gmail[:user_name],
+      password: Rails.application.credentials.gmail[:password],
+      #パスワードをBase64でエンコード
+      authentication: :login
+    }
+
+    config.public_file_server.enabled = true
 
 end
