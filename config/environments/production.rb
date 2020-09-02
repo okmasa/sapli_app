@@ -125,14 +125,13 @@ Rails.application.configure do
   #   :enable_starttls_auto => true
   # }
 
-    # ActionMailer Setting with AWS SES
-    config.action_mailer.default_url_options = {  :host => 'http://sapliapli.com' }
+    config.action_mailer.default_url_options = {  :host => 'www.sapliapli.com' }
     #送信方法を指定（この他に:sendmail/:file/:testなどがあります)
     config.action_mailer.delivery_method = :smtp
     #送信方法として:smtpを指定した場合は、このconfigを使って送信詳細の設定を行います
     config.action_mailer.smtp_settings = {
       #gmail利用時はaddress,domain,portは下記で固定
-      address:"smtp.gmail.com",
+      address: 'smtp.gmail.com',
       domain: 'gmail.com',
       port:587,
       #gmailのユーザアカウント（xxxx@gmail.com)※念のため、credentials.yml.enc行き

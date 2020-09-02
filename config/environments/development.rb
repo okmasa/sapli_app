@@ -31,14 +31,6 @@ Rails.application.configure do
   # Store uploaded files on the local file system (see config/storage.yml for options).
   config.active_storage.service = :local
 
-  # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
-
-  host = 'localhost:3000'
-  config.action_mailer.default_url_options = { host: host, protocol: 'http' }
-
-  config.action_mailer.perform_caching = false
-
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
 
@@ -67,19 +59,21 @@ Rails.application.configure do
   config.active_job.queue_adapter = :inline
 
   #gmail用mail設定
+  config.action_mailer.raise_delivery_errors = true
   config.action_mailer.default_url_options = {  host: 'localhost', port: 3000 }
   #送信方法を指定（この他に:sendmail/:file/:testなどがあります)
   config.action_mailer.delivery_method = :smtp
   #送信方法として:smtpを指定した場合は、このconfigを使って送信詳細の設定を行います
   config.action_mailer.smtp_settings = {
     #gmail利用時はaddress,domain,portは下記で固定
-    address:"smtp.gmail.com",
+    address: 'smtp.gmail.com',
     domain: 'gmail.com',
     port:587,
     #gmailのユーザアカウント（xxxx@gmail.com)※念のため、credentials.yml.enc行き
     user_name: Rails.application.credentials.gmail[:user_name],
     password: Rails.application.credentials.gmail[:password],
     #パスワードをBase64でエンコード
-    authentication: :login
+    authentication: "plain",
+    enable_starttls_auto: true
   }
 end
