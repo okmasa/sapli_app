@@ -12,9 +12,9 @@ class SupplementsIndexTest < ActionDispatch::IntegrationTest
     log_in_as(@admin)
     get supplements_path
     assert_template 'supplements/index'
-    # assert_select 'div.pagination', count: 2
-    first_page_of_supplements = Supplement.paginate(page: 1)
-    first_page_of_supplements.each do |supplement|
+    assert_select 'div.pagination', count: 2
+    last_page_of_supplements = Supplement.paginate(page: 3)
+    last_page_of_supplements.each do |supplement|
       assert_select 'a[href=?]', supplement_path(supplement), text: supplement.name
     end
     assert_difference 'Supplement.count', -1 do
