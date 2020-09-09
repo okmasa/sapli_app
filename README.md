@@ -1,59 +1,53 @@
-# Name（リポジトリ/プロジェクト/OSSなどの名前）
+# サプリアプリ
+サプリメントのレビューサイトです。
 
-分かりやすくてカッコイイ名前をつける（今回は"hoge"という名前をつける）
+「サプリメントの評価」と「感想の投稿」を共有することができます。
 
-"hoge"が何かを簡潔に紹介する
+URL: https://www.sapliapli.com
 
-# DEMO
+[![ホーム画像](app/assets/images/home-image.png)](https://www.sapliapli.com)
 
-"hoge"の魅力が直感的に伝えわるデモ動画や図解を載せる
+# 構成
+- インフラ
+  - AWS ( EC2 / ELB / Route53 / RDS / VPC )
 
-# Features
+- フロントエンド
+  - HTML
+  - CSS
+  - JavaScript
+  - jQuery
 
-"hoge"のセールスポイントや差別化などを説明する
+- バックエンド
+  - Ruby 2.6.3
+  - Rails 6.0.3
 
-# Requirement
+- Webサーバ
+  - Nginx
 
-"hoge"を動かすのに必要なライブラリなどを列挙する
+- APサーバ
+  - Unicorn
 
-* huga 3.5.2
-* hogehuga 1.0.2
+- データベース
+  - RDS for MySQL 5.6.1
 
-# Installation
 
-Requirementで列挙したライブラリなどのインストール方法を説明する
+# ネットワーク構成図
 
-```bash
-pip install huga_package
-```
 
-# Usage
+# 機能一覧
+- ユーザ登録関連
+  - ユーザ登録機能
+  - パスワード再設定機能
+  - Remember me機能
 
-DEMOの実行方法など、"hoge"の基本的な使い方を説明する
+- 投稿関連
+  - 画像投稿機能
+  - つぶやきの投稿機能
+  - サプリの投稿機能
+  - サプリの評価点登録機能
 
-```bash
-git clone https://github.com/hoge/~
-cd examples
-python demo.py
-```
-
-# Note
-
-注意点などがあれば書く
-
-# Author
-
-作成情報を列挙する
-
-* 作成者
-* 所属
-* E-mail
-
-# License
-ライセンスを明示する
-
-"hoge" is under [MIT license](https://en.wikipedia.org/wiki/MIT_License).
-
-社内向けなら社外秘であることを明示してる
-
-"hoge" is Confidential.
+- その他
+  - サプリの評価点ランキング機能
+  - サプリのお気に入り登録機能
+  - ユーザフォロー機能
+  - フォローユーザのフィード表示機能
