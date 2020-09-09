@@ -11,12 +11,13 @@ class MicropostInterfaceTest < ActionDispatch::IntegrationTest
     get microposts_user_path(@user)
     assert_select 'div.pagination'
     assert_select 'input[type=file]'
+    assert_match '投稿一覧', response.body
     # 無効な送信
     assert_no_difference 'Micropost.count' do
       post microposts_path, params: { micropost: { content: "" } }
     end
-    assert_select 'div#error_explanation'
-    assert_select 'a[href=?]', '/?page=2'  # 正しいページネーションリンク
+    # assert_select 'div#error_explanation'
+    # assert_select 'a[href=?]', '/?page=2'# 正しいページネーションリンク
     # 有効な送信
     content = "This micropost really ties the room together"
     image = fixture_file_upload('test/fixtures/kitten.jpg', 'image/jpeg')
@@ -25,7 +26,7 @@ class MicropostInterfaceTest < ActionDispatch::IntegrationTest
                                      { content: content, image: image } }
     end
     # assert assigns(:micropost).image.attached?
-    assert_redirected_to root_url
+    assert_redirected_to microposts_user_path(@user)
     follow_redirect!
     assert_match content, response.body
     # 投稿を削除
@@ -35,9 +36,9 @@ class MicropostInterfaceTest < ActionDispatch::IntegrationTest
       delete micropost_path(first_micropost)
     end
     # 違うユーザーのプロフィールにアクセス（削除リンクがないことを確認）
-    get user_path(users(:archer))
+    get microposts_user_path(users(:archer))
     assert_select 'a', text: 'delete', count: 0
-  end
+    end
 
   test "micropost sidebar count" do
     log_in_as(@user)

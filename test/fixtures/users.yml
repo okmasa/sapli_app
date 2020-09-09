@@ -4,7 +4,7 @@ michael:
   password_digest: <%= User.digest('password') %>
   admin:     true
   activated: true
-  activated_at: <%= Time.zone.now %>
+  activated_at: <%= 2.years.ago %>
   img: fixture_file_upload('test/fixtures/kitten.jpg', 'image/jpeg')
   # id: 1
 
