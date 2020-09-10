@@ -1,43 +1,68 @@
-# SQLite. Versions 3.8.0 and up are supported.
-#   gem install sqlite3
-#
-#   Ensure the SQLite 3 gem is defined in your Gemfile
-#   gem 'sqlite3'
-#
+# # SQLite. Versions 3.8.0 and up are supported.
+# #   gem install sqlite3
+# #
+# #   Ensure the SQLite 3 gem is defined in your Gemfile
+# #   gem 'sqlite3'
+# #
+# default: &default
+#   # adapter: sqlite3
+#   # pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+#   # timeout: 5000
+#   #===mysql設定===
+#   adapter: mysql2
+#   database: test_database
+#   username: root
+#   password:
+#   host: localhost
+#   encoding: utf8
+#   sql_mode: TRADITIONAL
+
+# development:
+#   <<: *default
+#   database: sapli_app_production
+#   # database: db/development.sqlite3
+
+# # Warning: The database defined as "test" will be erased and
+# # re-generated from your development database when you run "rake".
+# # Do not set this db to the same as development or production.
+# test:
+#   <<: *default
+#   datanase: sapli_app_test
+#   # database: db/test.sqlite3
+
+# production:
+#   <<: *default
+#   database: sapli_app_production
+#   # adapter: postgresql
+#   # encoding: unicode
+#   # For details on connection pooling, see Rails configuration guide
+#   # https://railsguides.jp/configuring.html#データベース接続をプールする
+#   # pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+#   # database: sapli_app_production
+#   # username: sapli_app
+#   # password: <%= ENV['SAMPLE_APP_DATABASE_PASSWORD'] %>
+
+
+# #######docker用設定
+
 default: &default
-  # adapter: sqlite3
-  # pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  # timeout: 5000
-  #===mysql設定===
   adapter: mysql2
-  database: test_database
-  username: root
-  password:
-  host: localhost
-  encoding: utf8
-  sql_mode: TRADITIONAL
+  encoding: utf8mb4
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: <%= ENV.fetch("MYSQL_USERNAME", "root") %>
+  password: <%= ENV.fetch("MYSQL_PASSWORD", "password") %>
+  host: <%= ENV.fetch("MYSQL_HOST", "db") %>
 
 development:
   <<: *default
-  database: sapli_app_production
-  # database: db/development.sqlite3
+  database: sapliapp_development
 
-# Warning: The database defined as "test" will be erased and
-# re-generated from your development database when you run "rake".
-# Do not set this db to the same as development or production.
 test:
   <<: *default
-  datanase: sapli_app_test
-  # database: db/test.sqlite3
+  database: sapliapp_test
 
 production:
   <<: *default
-  database: sapli_app_production
-  # adapter: postgresql
-  # encoding: unicode
-  # For details on connection pooling, see Rails configuration guide
-  # https://railsguides.jp/configuring.html#データベース接続をプールする
-  # pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  # database: sapli_app_production
-  # username: sapli_app
-  # password: <%= ENV['SAMPLE_APP_DATABASE_PASSWORD'] %>
+  database: sapliapp_production
+  username: sapliapp
+  password: <%= ENV['SAPLIAPP_DATABASE_PASSWORD'] %>
