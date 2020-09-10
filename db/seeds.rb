@@ -7,6 +7,14 @@ User.create!(name:  "Example User",
              activated: true,
              activated_at: Time.zone.now)
 
+User.create!(name:  "ゲスト",
+             email: "guest@sapliapli.com",
+             password:              "sapliapli123",
+             password_confirmation: "sapliapli123",
+             admin:     false,
+             activated: true,
+             activated_at: Time.zone.now)
+
 Faker::Config.locale = :ja
 
 # 追加のユーザーをまとめて生成する
