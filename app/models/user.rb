@@ -112,6 +112,14 @@ class User < ApplicationRecord
     img.variant(resize_to_limit: [300, 300])
   end
 
+  # ゲストログイン用
+  def self.guest
+    find_or_create_by!(email: "guest@sapliapli.com") do |user|
+      user.password = sapliapli123
+      user.name = "ゲスト"
+    end
+  end
+
   private
 
     def downcase_email

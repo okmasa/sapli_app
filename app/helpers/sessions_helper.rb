@@ -56,4 +56,8 @@ module SessionsHelper
     session[:forwarding_url] = request.original_url if request.get?
   end
 
+  def guest_user?
+    current_user == User.find_by(email: 'guest@sapliapli.com')
+  end
+
 end
