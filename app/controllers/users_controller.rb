@@ -4,6 +4,7 @@ class UsersController < ApplicationController
                                         :favorites, :microposts]
   before_action :correct_user,   only: [:edit, :update]
   before_action :admin_user,     only: [:destroy]
+  before_action :guest_user,     only: [:edit]
 
   def index
     @users = User.where(activated: true).paginate(page: params[:page], per_page: 12)
@@ -101,9 +102,15 @@ class UsersController < ApplicationController
       redirect_to(root_url) unless current_user?(@user)
     end
 
-
     def admin_user
       redirect_to(root_url) unless current_user.admin?
+    end
+
+    def guest_user
+      if guest_user?
+        flash[:danger] = "ゲストユーザは編集できません"
+        redirect_to(root_url)
+      end
     end
 
 end

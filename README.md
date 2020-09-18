@@ -7,9 +7,9 @@ URL: https://www.sapliapli.com
 
 [![ホーム画像](app/assets/images/home-image.png)](https://www.sapliapli.com)
 
-# 構成
+# 使用技術
 - インフラ
-  - AWS ( EC2 / ELB / Route53 / RDS / VPC )
+  - AWS ( EC2 / ALB / Route53 / RDS / VPC )
 
 - フロントエンド
   - HTML
@@ -25,13 +25,18 @@ URL: https://www.sapliapli.com
   - Nginx
 
 - APサーバ
-  - Unicorn
+  - Puma
 
 - データベース
   - RDS for MySQL 5.6.1
 
+- 開発環境
+  - Docker
 
-# ネットワーク構成図
+
+# AWS構成図
+![AWS構成図](app/assets/images/aws-map.png)
+
 
 
 # 機能一覧
@@ -39,12 +44,14 @@ URL: https://www.sapliapli.com
   - ユーザ登録機能
   - パスワード再設定機能
   - Remember me機能
+  - 簡易ログイン機能（ゲストユーザ機能）
 
 - 投稿関連
   - 画像投稿機能
   - つぶやきの投稿機能
   - サプリの投稿機能
   - サプリの評価点登録機能
+  - サプリのレビュー機能
 
 - その他
   - サプリの評価点ランキング機能
