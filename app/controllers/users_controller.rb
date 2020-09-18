@@ -108,7 +108,7 @@ class UsersController < ApplicationController
 
     def guest_user
       if guest_user?
-        flash[:danger] = "ゲストユーザは編集できません"
+        flash[:danger] = "ゲストユーザはプロフィール編集できません"
         redirect_to(root_url)
       end
     end

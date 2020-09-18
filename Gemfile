@@ -29,6 +29,8 @@ gem 'jbuilder', '~> 2.7'
 # 簡易ログイン用
 gem 'devise'
 gem 'omniauth-twitter'
+# 環境変数用
+gem 'dotenv-rails'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
