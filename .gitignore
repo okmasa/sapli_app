@@ -11,6 +11,9 @@
 /db/*.sqlite3
 /db/*.sqlite3-journal
 /db/*.sqlite3-*
+*.orig
+rerun.txt
+pickle-email-*.html
 
 # Ignore all logfiles and tempfiles.
 /log/*
@@ -30,9 +33,15 @@
 /public/assets
 .byebug_history
 
+# Ignore pow environment settings
+.powenv
+
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+/config/initializers/secret_token.rb
 
+/public/system
+/public/assets
 /public/packs
 /public/packs-test
 /node_modules
@@ -42,6 +51,14 @@ yarn-debug.log*
 
 /config/credentials/production.key
 .env
+.env.*
 secrets.yml
 /config/credentials.yml.enc
 /config/credentials
+/config/database.yml
+/db/seeds.rb
+
+# Ignore uploaded files in development
+/storage/*
+!/storage/.keep
+/public/uploads
