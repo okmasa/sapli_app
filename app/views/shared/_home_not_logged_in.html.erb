@@ -1,0 +1,13 @@
+<body class="home">
+  <div class="homebody">
+    <%= link_to image_tag("logo.png", alt: "sapli_apli logo", width: "500px"), root_path %>
+    <p style="font-size: 18px">
+    みんなでつくるサプリ評価SNS
+    </p>
+    <%= link_to "使い方",   about_path,  class: "btn btn-lg btn-info", id: "aboutbtn" %>
+    <br>
+    <%= link_to "新規登録", signup_path, class: "btn btn-lg btn-warning" %>
+    <%= link_to "ログイン", login_path,  class: "btn btn-lg btn-warning" %>
+    <%= link_to 'ゲストログイン', guest_path, method: :post, class: "btn btn-lg btn-warning"%>
+  </div>
+</body>

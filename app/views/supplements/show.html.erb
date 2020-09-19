@@ -1,0 +1,60 @@
+<% provide(:title, @supplement.name ) %>
+
+<div class="row">
+  <div class="col-md-8 col-md-offset-2 sapli-back-show">
+    <h1 class="sapli_title"><%= @supplement.name %></h1>
+    <%# お気に入りの数 %>
+    <p>お気に入り登録ユーザー：<%= @supplement.favorites.count %>
+    <%# お気に入り登録ボタン %>
+    <% if logged_in? %>
+      <% if @supplement.favorited_by?(current_user) %>
+        <p><%=link_to "お気に入り解除", supplement_favorites_path(@supplement.id), method: :delete, class: 'btn btn-warning'%></p>
+      <% else %>
+        <p><%=link_to "お気に入り登録", supplement_favorites_path(@supplement.id), method: :post, class: 'btn btn-primary favo-btn'%></p>
+      <% end %>
+    <% end %>
+  <%# サプリ画像 %>
+    <div><%= image_tag @supplement.img, class: "sapli-img-show" if @supplement.img.attached? %></div>
+    <div class="col-md-6 col-md-offset-3 btn">
+      <%= link_to "編集", edit_supplement_path, class: 'btn btn-default' %>
+      <% if current_user && current_user.admin? %>
+        　<%= link_to "delete", @supplement, method: :delete, 
+                                            data: { confirm: "削除しますか？" } %>
+      <% end %>
+    </div>
+    <!-- 説明文 -->
+    <div class="col-md-10 col-md-offset-1">
+       <p style="font-size: 14px"><%= @supplement.description %></p>
+    </div>
+  </div>
+    <!-- 平均点|評価数 -->
+  <div class="col-md-4 col-md-offset-4">
+    <div class="sup_stats">
+    <li>
+      <strong class="stat">平均<%= @supplement.reviews.average(:score).to_f.round(1) %>点</strong>
+      /5点
+    </li>
+    <li>
+      <strong class="stat">評価数<%= @supplement.reviews.count %>件</strong>
+      <br>
+    </li>
+    </div>
+  </div>
+
+  <!-- 評価フォーム -->
+  <%# <div class="col-md-9"> %>
+  <div class="col-md-8 col-md-offset-2">
+    <%= render 'shared/review_form_scoring' %>
+  </div>
+  <!-- 評価一覧 -->
+  <%# <div class="col-md-9"> %>
+  <div class="col-md-8 col-md-offset-2">
+    <% if @supplement.reviews.any? %>
+      <ol class="reviews">
+        <%# <%= render @supplement.reviews %>
+        <%= render @review_item %>
+      </ol>
+    <% end %>
+    <%= will_paginate @review_item %>
+  </div>
+</div>
