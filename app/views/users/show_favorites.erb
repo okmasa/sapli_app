@@ -1,0 +1,13 @@
+<% provide(:title, @title) %>
+
+<div class="container">
+    <div class="col-md-12">
+    <h3 style="margin-bottom: 20px">
+    <%= @user.name %>の<%= @title %>（<%= @user.favorites.count %>）
+    </h3>
+    <div style="margin-bottom: 20px">
+      <%= link_to "サプリリストへ", supplements_path %>
+    </div>
+      <%= render "supplements/supplement" %>
+    <div class="index_paginate"><%= will_paginate @supplements%></div>
+</div>

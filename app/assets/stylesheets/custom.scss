@@ -1,0 +1,498 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+html{
+  font-family: 'Helvetica Neue','Helvetica','Arial','Yu Gothic',
+               'Hiragino Kaku Gothic ProN','ヒラギノ角ゴ ProN W3',
+              'メイリオ','ＭＳ ゴシック', sans-serif;
+}
+
+//mixins, variables, etc. 
+
+$gray-medium-light: #eaeaea;
+
+@mixin box_sizing {
+  -moz-box-sizing:    border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing:         border-box;
+}
+
+//universal
+
+body{
+  padding-top: 60px;
+  background-color: rgba(217, 255, 217, 0.253);
+}
+
+//home
+
+.home{
+  background-image: image-url('forest-opacity.png');
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+}
+
+.homebody{
+  text-align: center;
+  p{
+    margin-top: 2em;
+    margin-bottom: 2em;
+  }
+}
+
+.btn-warning{
+  margin: 20px
+}
+
+.favo-btn{
+  margin: 20px
+}
+
+.home-h3{
+  font-weight: bold;
+  margin-top: 8px;
+  a{
+  color: brown;
+  }
+  display: inline-block;
+}
+
+.ranking-not-loggin{
+  margin-top: 40px;
+  h1{
+    text-align: center;
+    font-weight: bold;
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
+}
+
+.ranking-loggin{
+  margin-top: 40px;
+  background-image: image-url('forest-opacity.png');
+  h1{
+    text-align: center;
+    font-weight: bold;
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
+}
+
+// header
+
+#logo {
+  float: left;
+  margin-right: 10px; 
+  font-size: 1.5em;
+  color: skyblue;
+  padding-top: 9px;
+  font-weight: bold;
+  // &:hover{
+  //   text-decoration: none;
+  // }
+}
+
+//フォーム画面のタイトル
+.form_title{
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+//forgot password
+.pwreset{
+  text-align: center;
+  margin: 1.5em;
+}
+
+
+// miscellaneous
+.debug_dump {
+  text-align: left;
+  clear: both;
+  float: left;
+  width: 100%;
+  margin-top: 45px;
+  @include box_sizing;
+}
+
+/* forms */
+
+input, textarea, select, .uneditable-input {
+  border: 1px solid #bbb;
+  width: 100%;
+  margin-bottom: 20px;
+  @include box_sizing;
+}
+
+input {
+  height: auto !important;
+}
+
+#error_explanation {
+  color: red;
+  ul {
+    color: red;
+    margin: 0 0 30px 0;
+  }
+}
+
+.field_with_errors {
+  @extend .has-error;
+  .form-control {
+    color: $state-danger-text;
+  }
+}
+
+.checkbox {
+  margin-top: -10px;
+  margin-bottom: 10px;
+  span {
+    margin-left: 20px;
+    font-weight: normal;
+  }
+}
+
+#session_remember_me {
+  width: auto;
+  margin-left: 0;
+}
+
+/* about */
+.about {
+  img {
+    // width: 700px;
+    // height: 320px;
+    width: 90%;
+    height: 90%;
+    display: block;
+    margin: 5px auto;
+  }
+  a{
+    color: yellow;
+  }
+  .p1{
+    color: white;
+    font-weight: bold;
+    font-size: 24px;
+    text-align: center;
+    margin-top: 130px;
+    margin-bottom: 200px;
+  }
+  .p2{
+    color: white;
+    font-weight: bold;
+    font-size: 22px;
+    text-align: center;
+    margin-top: 100px;
+    margin-bottom: 100px;
+  }
+  .p3{
+    color: white;
+    font-weight: bold;
+    font-size: 22px;
+    text-align: center;
+    margin-top: 200px;
+    margin-bottom: 200px;
+  }
+}
+
+
+/* Users index */
+
+.users {
+  background-color:#D3EDC4;
+  margin-top: 20px;
+  margin-bottom: 40px;
+  // border: 1px solid gray;
+  border: 1px solid gray;
+  border-radius: 10px;
+  .user-stats{
+    text-align: center;
+    // font-weight: bold;
+  }
+}
+
+
+/* microposts */
+
+.microposts {
+  list-style: none;
+  padding: 0;
+    li {
+    padding: 0 0;
+    border-top: 1px solid #e8e8e8;
+  }
+  .user {
+    margin-top: 5em;
+    padding-top: 0;
+  }
+  .content {
+    // display: block;
+    margin-left: 10px;
+    padding-top: 5px;
+    img {
+      display: block;
+      padding: 5px 0;
+    }
+  }
+  .timestamp {
+    color: $gray-light;
+    display: block;
+    text-align: right;
+  }
+}
+
+aside {
+  background-color: #f5f5f5;
+  text-align: center;
+  textarea {
+    height: 100px;
+    margin-bottom: 5px;
+  }
+}
+
+span.image {
+  margin-top: 10px;
+  input {
+    border: 0;
+  }
+}
+
+.user_info{
+  text-align: center;
+}
+
+
+/* sidebar */
+
+.stats {
+  overflow: auto;
+  width: 300px;
+  margin: 0 auto;
+  margin-top: 10px;
+  padding: 0;
+  a {
+    float: left;
+    padding: 0 10px;
+    border-left: 1px solid gray;
+    color: gray;
+    &:first-child {
+      padding-left: 0;
+      border: 0;
+    }
+    &:hover {
+      text-decoration: none;
+      color: blue;
+    }
+  }
+  strong {
+    display: block;
+  }
+}
+
+.stats2 {
+  overflow: auto;
+  margin-top: 0;
+  margin-left: 70px;
+  padding: 0;
+  p {
+    float: left;
+    padding: 0 10px;
+    border-left: 1px solid gray;
+    color: rgb(78, 78, 78);
+    &:first-child {
+      padding-left: 0;
+      border: 0;
+    }
+  }
+  strong {
+    display: block;
+  }
+}
+
+.users.follow {
+  margin-bottom: 20px;
+}
+
+
+/* image */
+.user-img {
+  text-align: center;
+  img{
+  border-radius: 50%;
+  width:  250px;      /* ※縦横を同値に */
+  height: 250px;       /* ※縦横を同値に */
+  // margin-left: 60px;
+  margin: 1em 0;
+  }
+}
+
+.sapli-img {
+  width:  85%;       /* ※縦横を同値に */
+  // height: 200px;       /* ※縦横を同値に */
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+.sapli-img-show {
+  width:  200px;       /* ※縦横を同値に */
+  height: 200px;       /* ※縦横を同値に */
+  margin-bottom: 1em;
+}
+
+// supplement-index
+.sapli_index{
+  h1,h2{
+    margin-left: 100px;
+  }
+  .index_paginate{
+    margin-left: 100px;
+  }
+}
+
+.sapli-back{
+  background: #f0f8ff;
+  text-align: center;
+  margin-bottom: 100px;
+  padding-bottom: 15px;
+  border: 1px solid gray;
+  border-radius: 10px;
+  p{
+    font-family: 'ヒラギノ角ゴ StdN','Hiragino Kaku Gothic StdN',sans-serif;
+    font-size: 18px;
+    margin: 10px 0;
+  }
+}
+
+.sapli-back-home{
+  background: #f0f8ff;
+  text-align: center;
+  margin-bottom: 10px;
+  border: 1px solid;
+  p{
+    font-family: 'ヒラギノ角ゴ StdN','Hiragino Kaku Gothic StdN',sans-serif;
+    font-size: 14px;
+    margin: 10px 0;
+  }
+  &:nth-child(n+2){
+    border-left: 0;
+  }
+}
+
+.sapli-back-rank{
+  background: rgba(59, 59, 59, 0.8);
+  text-align: center;
+  margin-bottom: 10px;
+  padding-bottom: 15px;
+  border: 1px solid white;
+  #rank{
+    color: #fffb00;
+    font-weight: bold;
+  }
+  p{
+    color: #e7e301;
+    font-family: 'ヒラギノ角ゴ StdN','Hiragino Kaku Gothic StdN',sans-serif;
+    font-size: 18px;
+    margin: 10px 0;
+  }
+ &:nth-child(n+2){
+    border-left: 0;
+  }
+}
+
+.index_star{
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+//supplement-show
+.sapli-back-show{
+  background: #f0f8ff;
+  text-align: center;
+  margin-bottom: 2em;
+  border: 1px solid;
+  .btn{
+    margin: 1em, 0, 2em;
+  }
+}
+
+.sapli_title{
+  font-family: 'ヒラギノ角ゴ StdN','Hiragino Kaku Gothic StdN',sans-serif;
+  font-weight: bold;
+  font-size: 24px
+}
+
+#star{
+  margin-bottom: 6px;
+}
+
+.sup_stats {
+  // overflow: auto;
+  margin-top: 5px;
+  width: 350px;
+  padding: 5px 0 0 50px;
+  // text-align: center;
+  margin: 0 auto;
+  li {
+    list-style: none;
+    float: left;
+    padding: 0 10px;
+    border-left: 1.5px solid $gray-light;
+    // color: gray;
+    &:first-child {
+      padding-left: 50;
+      border: 0;
+    }
+  }
+  strong {
+    font-size: 20px;
+    display: block;
+    margin: 0 auto;
+  }
+}
+
+
+
+/* reviews */
+
+.reviews {
+  list-style: none;
+  padding: 0;
+  li {
+    padding: 0;
+    border-top: 1px solid #e8e8e8;
+  }
+  .user {
+    margin-top: 5em;
+    padding-top: 0;
+  }
+  .score {
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+  .content {
+    // display: block;
+    margin-left: 10px;
+    padding: 0.5em 0;
+    img {
+      display: block;
+      padding: 5px 0;
+    }
+  }
+  .timestamp {
+    color: $gray-light;
+    display: block;
+    text-align: right;
+  }
+}
+
+//投稿のユーザ画像
+.user_img_post {
+  overflow: auto;
+  margin-top: 10px;
+  border-radius: 50%;
+  width:  30px;       /* ※縦横を同値に */
+  height: 30px;       /* ※縦横を同値に */
+  margin-bottom: 1em;
+}
