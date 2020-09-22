@@ -1,0 +1,2 @@
+$("#favorite_form").html("<%= escape_javascript(render('supplements/favorite')) %>");
+$("#favorite_count").html("お気に入り登録ユーザー：<%= @supplement.favorites.count %>");
