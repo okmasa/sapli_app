@@ -46,7 +46,8 @@ yarn-debug.log*
 
 /.config
 secrets.yml
-/vendor
-/lib
-/public
+vendor/
+lib/
+public/
 .DS_Store
+log/
