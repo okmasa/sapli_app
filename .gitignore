@@ -49,3 +49,4 @@ secrets.yml
 /vendor
 /lib
 /public
+.DS_Store
