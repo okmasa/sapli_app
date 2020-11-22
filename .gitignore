@@ -55,3 +55,4 @@ log/
 bfg-1.13.0
 .ruby-version
 credentials.yml.enc
+config/credentials
