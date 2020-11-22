@@ -1,0 +1,32 @@
+  <%= form_with(model: @review, local: true) do |f| %>
+    <%= render 'shared/error_messages', object: f.object %>
+    
+    <!-- サプリID -->
+    <%= f.hidden_field :supplement_id, { value: @supplement.id } %>
+    <!-- テキストエリア -->
+    <div class="field">
+      <%= f.text_area :content, size: "10x5", placeholder: "サプリの評価を書いて下さい!" %>
+    </div>
+    <!-- 評価 -->
+    <div id="star">
+      <%= f.label :score, "評価：" %>
+      <%= f.hidden_field :score, id: :review_star %>
+    </div>
+    <!-- 投稿ボタン -->
+    <%= f.submit "評価する", class: "btn btn-primary" %>
+  <% end %>
+
+  <!-- 評価javascript -->
+  <script>
+  $(function () {
+    $('#star').raty({
+      starOff:  '<%= asset_path('star-off.png') %>',
+      starOn :  '<%= asset_path('star-on.png') %>',
+      starHalf: '<%= asset_path('star-half.png') %>',
+      scoreName: 'review[score]',
+      half: true,
+      score  : 2.5,
+      size   : 28
+    });
+  });
+  </script>

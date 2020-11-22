@@ -1,0 +1,6 @@
+<% if @favorite_supplements.any? %>
+  <ol class="favorites">
+    <%= render "shared/favorite_supplement.html.erb" %>
+  </ol>
+  <%# <%= will_paginate @favorite_supplements, params: { controller: :static_pages, action: :home } %>
+<% end %>

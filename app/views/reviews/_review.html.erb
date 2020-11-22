@@ -1,0 +1,41 @@
+<li id="review-<%= review.id %>">
+  <%# ユーザ画像 %>
+  <span>
+    <% if review.user.img.attached? %>
+      <%=link_to image_tag(review.user.display_image, class: "user_img_post"), review.user %>
+    <% else %>
+      <%=link_to image_tag("default.jpg",  class:"user_img_post"), review.user %>
+    <% end %>
+  </span>
+  <%# ユーザ名 %>
+  <span class="user"><%= link_to review.user.name, review.user %></span>
+  <%# スコア %>
+  <span class="score">
+    <span id="star-score-<%= review.id %>"></span>
+      <script>
+        $('#star-score-<%= review.id %>').raty({
+          size: 22,
+          starOff:  '<%= asset_path('star-off.png') %>',
+          starOn : '<%= asset_path('star-on.png') %>',
+          starHalf: '<%= asset_path('star-half.png') %>',
+          half: true,
+          readOnly: true,
+          score: <%= review.score %>,
+        });
+      </script>
+       | <%= link_to review.supplement.name, review.supplement %>
+  </span>
+  <%# 投稿 %>
+  <br>
+  <span class="content"><%= review.content %></span>
+  <%# タイムスタンプ %>
+  <span class="timestamp">
+  <% if review.created_at %>
+    <%= time_ago_in_words(review.created_at) %> ago.
+  <% end %>
+  <% if current_user?(review.user) %>
+  | <%= link_to "delete", review, method: :delete,
+                                  data: { confirm: "削除してよろしいですか？" } %>
+  <% end %>
+  </span>
+</li>
