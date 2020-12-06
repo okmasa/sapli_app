@@ -1,0 +1,51 @@
+version: '3'
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: bundle exec puma -C config/puma.rb -e production
+    tty: true #pry-byebugを使えるようにする
+    stdin_open: true
+    #depends_on:
+    #- db 
+       #ports:
+       #- "3000:3000"
+    volumes:
+      - .:/sapli_app:cached 
+      #ソケット通信用ファイルをnginxコンテナと共有
+      - tmp-data:/sapli_app/tmp/sockets
+      #画像データとかをnginxと共有
+      - public-data:/sapli_app/public
+
+        #db:
+        #image: mysql:5.7
+        #command: mysqld --character-set-server=utf8 --collation-server=utf8_unicode_ci
+    # ports: 
+    #- '8000:3306'
+    #environment:
+    #MYSQL_DATABASE: sapli_app_production
+    # MYSQL_ROOT_PASSWORD: password
+    # MYSQL_USER: root
+    # MYSQL_PASSWORD: password
+    #dbのデータを永続化しておく
+    #volumes:
+    # - mysql-data:/var/lib/mysql
+
+  nginx:
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile
+    ports:
+      - 80:80
+    restart: always #明示的にstopさせるまでリスタートする。（失敗するたび遅延あり）
+    volumes:
+      - tmp-data:/sapli_app/tmp/sockets
+      - public-data:/sapli_app/public
+    depends_on:
+      - web 
+
+volumes:
+  public-data:
+  tmp-data:
+          #mysql-data:
