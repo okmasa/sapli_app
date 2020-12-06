@@ -76,7 +76,6 @@ end
 group :production, :staging do
   # gem 'pg', '1.1.4'
   gem 'unicorn'
-  # gem 'aws-ses', '~> 0.6'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
