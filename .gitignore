@@ -39,6 +39,7 @@
 /yarn-error.log
 yarn-debug.log*
 .yarn-integrity
+yarn.lock
 
 /config/credentials/production.key
 /congig/environments
@@ -52,9 +53,10 @@ lib/
 public/
 .DS_Store
 log/
-bfg-1.13.0
+bfg-1.13.0.jar
 .ruby-version
 credentials.yml.enc
 config/credentials
 /config/credentials.yml.enc
->>>>>>> okmasa/fix-docker-setting
+Gemfile.lock
+.browserslistrc
