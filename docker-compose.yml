@@ -12,7 +12,7 @@ services:
        #ports:
        #- "3000:3000"
     volumes:
-      - .:/sapli_app:cached 
+      - .:/sapli_app:cached
       #ソケット通信用ファイルをnginxコンテナと共有
       - tmp-data:/sapli_app/tmp/sockets
       #画像データとかをnginxと共有
