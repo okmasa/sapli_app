@@ -35,7 +35,7 @@ URL: https://www.sapliapli.com
 
 
 # AWS構成図
-![AWS構成図](app/assets/images/aws-map2.png)
+![AWS構成図](app/assets/images/aws-map3.png)
 
 # 機能一覧
 - ユーザ登録関連
